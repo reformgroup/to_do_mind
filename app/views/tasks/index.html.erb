@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<ul class="sortable" data-url="<%= sort_tasks_path %>">
+  <% @tasks.each do |task| %>
+    <li id="<%=dom_id(task)%>">
+      <div class="d-inline"><%= task.name %></div>
+      <div class="d-inline"><%= task.description %></div>
+      <div class="d-inline"><%= task.list.id %></div>
+      <div class="d-inline"><%= task.position %></div>
+      <div class="d-inline"><%= link_to 'Show', task %></div>
+      <div class="d-inline"><%= link_to 'Edit', edit_task_path(task) %></div>
+      <div class="d-inline"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

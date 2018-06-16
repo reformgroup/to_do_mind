@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lists</h1>
+
+<ul class="sortable" data-url="<%= sort_lists_path %>">
+  <% @lists.each do |list| %>
+    <li>
+      <div class="d-inline"><%= list.name %></div>
+      <div class="d-inline"><%= list.description %></div>
+      <div class="d-inline"><%= link_to 'Show', list %></div>
+      <div class="d-inline"><%= link_to 'Edit', edit_list_path(list) %></div>
+      <div class="d-inline"><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New List', new_list_path %>
