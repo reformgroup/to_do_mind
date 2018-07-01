@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all.order(:position)
+    @tasks = List.find(params[:list_id]).tasks
+    # @tasks = Task.all.order(:position)
   end
 
   # GET /tasks/1
@@ -62,12 +63,9 @@ class TasksController < ApplicationController
   end
   
   def sort
-    params[:task].each_with_index do |id, index|
-      Task.where(id: id).update_all(position: index + 1)
-    end
-    
+    Task.find(params[:object_id]).insert_at(params[:position].to_i)
     head :ok
-  end 
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.

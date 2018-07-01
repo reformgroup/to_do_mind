@@ -4,7 +4,7 @@
 
 <ul class="sortable" data-url="<%= sort_lists_path %>">
   <% @lists.each do |list| %>
-    <li>
+    <li data-object-id="<%= list.id %>">
       <div class="d-inline"><%= list.name %></div>
       <div class="d-inline"><%= list.description %></div>
       <div class="d-inline"><%= link_to 'Show', list %></div>

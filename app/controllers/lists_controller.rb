@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = List.all.order(:position)
   end
 
   # GET /lists/1
@@ -60,7 +60,12 @@ class ListsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def sort
+    List.find(params[:object_id]).insert_at(params[:position].to_i)
+    head :ok
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_10_065826) do
+ActiveRecord::Schema.define(version: 2018_06_25_184903) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_06_10_065826) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.integer "position"
     t.index ["ancestry"], name: "index_lists_on_ancestry"
   end
 

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   
   resources :lists do
-    collection do
-      patch :sort 
+    resources :tasks do
+      collection do
+        patch :sort 
+      end
     end
-  end
-  resources :tasks do
+    
     collection do
       patch :sort 
     end
