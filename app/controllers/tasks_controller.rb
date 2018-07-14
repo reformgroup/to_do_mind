@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = List.find(params[:list_id]).tasks
+    @lists = List.all.order(:position)
+    @tasks = List.find(params[:list_id]).tasks.order(:position)
     # @tasks = Task.all.order(:position)
   end
 

@@ -5,6 +5,7 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all.order(:position)
+    @tasks = @lists.first.tasks
   end
 
   # GET /lists/1

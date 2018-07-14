@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<ul class="sortable" data-url="<%= sort_list_tasks_path %>">
+  <% @tasks.each do |task| %>
+    <li data-object-id="<%= task.id %>">
+      <div class="d-inline"><%= task.name %></div>
+      <div class="d-inline"><%= task.description %></div>
+      <div class="d-inline"><%= task.list.id %></div>
+      <div class="d-inline"><%= task.position %></div>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Task', new_list_task_path %>
