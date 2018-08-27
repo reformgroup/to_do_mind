@@ -5,7 +5,7 @@
 <ul class="sortable nav flex-column" data-url="<%= sort_lists_path %>">
   <% @lists.each do |list| %>
     <li class="nav-item" data-object-id="<%= list.id %>">
-      <%= link_to list.name, [list, :tasks], remote: true, class: "nav-link" %>
+      <%= link_to list.name, [list, :tasks], class: 'nav-link', remote: true %>
     </li>
   <% end %>
 </ul>

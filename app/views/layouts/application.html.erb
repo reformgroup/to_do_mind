@@ -12,7 +12,14 @@
 
   <body>
     <div class="container-fluid h-100">
-      <%= yield %>
+      <div class="row h-100">    
+        <div id="sidebar" class="col-4 text-truncate bg-light text-dark scroll-bar">
+          <%= render template: 'lists/index' %>
+        </div>
+        <div id="content" class="col-8 scroll-bar">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

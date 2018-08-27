@@ -1,8 +1,18 @@
-<div class="row h-100">    
-  <div id="sidebar" class="col-4 text-truncate bg-light text-dark scroll-bar">
-    <%= render template: 'lists/index' %>
-  </div>
-  <div id="content" class="col-8 scroll-bar">
-    <%= render 'tasks' %>
-  </div>
-</div>
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<ul class="sortable" data-url="<%= sort_list_tasks_path %>">
+  <% @tasks.each do |task| %>
+    <li data-object-id="<%= task.id %>">
+      <%= link_to task.name, list_task_path(@list, task), class: 'd-inline', remote: true %>
+      <div class="d-inline"><%= task.description %></div>
+      <div class="d-inline"><%= task.id %></div>
+      <div class="d-inline"><%= task.position %></div>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Task', new_list_task_path, remote: true %>

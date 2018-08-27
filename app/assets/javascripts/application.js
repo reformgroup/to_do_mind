@@ -17,7 +17,6 @@
 //= require jquery-ui/widgets/sortable
 //= require popper
 //= require bootstrap-sprockets
-//= require sortable
 //
 // Base
 //
