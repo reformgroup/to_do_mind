@@ -1,0 +1,33 @@
+.list-group-link {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.list-group-link-item {
+  color: $list-group-link-item-color;
+  border: 0;
+  padding-left: $list-group-link-item-padding-y;
+  padding-right: $list-group-link-item-padding-y;
+  
+  // Hover state
+  @include hover-focus {
+    color: $list-group-link-item-hover-color;
+  }
+  
+  &:first-child {
+    @include border-top-radius(0);
+  }
+  
+  &:last-child {
+    @include border-bottom-radius(0);
+  }
+}
+
+.list-group-link-dark .list-group-link-item {
+  background-color: $list-group-link-dark-item-bg;
+
+  // Hover state
+  @include hover-focus {
+    background-color: $list-group-link-dark-item-hover-bg;
+  }
+}

@@ -69,7 +69,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 # Styles
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.1.3'
 gem 'font-awesome-sass', '~> 5.0.13'
 
 # Application

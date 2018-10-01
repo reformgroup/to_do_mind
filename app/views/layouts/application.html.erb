@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,12 +12,23 @@
 
   <body>
     <div class="container-fluid h-100">
-      <div class="row h-100">    
-        <div id="sidebar" class="col-4 text-truncate bg-light text-dark scroll-bar">
+      <div class="row h-100">
+        <div id="sidebar" class="col-4 scroll-bar px-4 bg-light">
+          <nav class="navbar navbar-expand navbar-light">
+            <%= link_to image_tag("logo.png", alt: "To do mind"), root_path, class: 'navbar-brand' %>
+          </nav>
           <%= render template: 'lists/index' %>
         </div>
-        <div id="content" class="col-8 scroll-bar">
-          <%= yield %>
+        
+        <div id="main" class="col scroll-bar px-4">
+          <nav class="navbar navbar-light">
+          </nav>
+          <% if notice %>
+            <p id="notice"><%= notice %></p>
+          <% end %>
+          <div class="content">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

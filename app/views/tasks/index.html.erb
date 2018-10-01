@@ -1,18 +1,22 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar subnavbar">
+  <h2 class="text-truncate"><%= @list.name %></h2>
+  <%= icon 'fas', 'angle-down', class: 'ml-2' %>
+  <div class="ml-auto">
+    <%= link_to 'New Task', new_list_task_path, class: 'btn btn-outline-primary', remote: true %>
+  </div>
+</nav>
 
-<h1>Tasks</h1>
-
-<ul class="sortable" data-url="<%= sort_list_tasks_path %>">
-  <% @tasks.each do |task| %>
-    <li data-object-id="<%= task.id %>">
-      <%= link_to task.name, list_task_path(@list, task), class: 'd-inline', remote: true %>
-      <div class="d-inline"><%= task.description %></div>
-      <div class="d-inline"><%= task.id %></div>
-      <div class="d-inline"><%= task.position %></div>
-    </li>
-  <% end %>
-</ul>
-
-<br>
-
-<%= link_to 'New Task', new_list_task_path, remote: true %>
+<div class="content">
+  <div class="list-group list-group-link sortable" data-url="<%= sort_list_tasks_path %>">
+    <% @tasks.each do |task| %>
+      <%= link_to list_task_path(@list, task), class: 'list-group-item list-group-item-action list-group-link-item',  "data-object-id": task.id, remote: true do %>
+        <div class="d-flex w-100 justify-content-between mb-1">
+          <span class="text-truncate"><%= task.name %></span>
+          <small>3 days ago</small>
+        </div>
+        <p class="mb-0 text-truncate text-muted"><%= task.list.name %></p>
+        <p class="mb-0 text-truncate text-muted"><%= task.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
