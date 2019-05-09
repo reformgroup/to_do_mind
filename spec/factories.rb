@@ -5,7 +5,7 @@ FactoryBot.define do
     factory :list_with_tasks do
       
       transient do
-        tasks_count 5
+        tasks_count { 5 }
       end
       
       after(:create) do |list, evaluator|

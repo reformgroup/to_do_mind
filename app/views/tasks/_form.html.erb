@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
+    <%= form.text_area :description, class: "form-control", rows: "5" %>
   </div>
 
   <div class="form-group">
@@ -26,5 +26,10 @@
     <%= form.text_field :list_id, class: "form-control" %>
   </div>
   
-  <%= form.submit class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+  
 <% end %>

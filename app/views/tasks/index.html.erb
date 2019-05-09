@@ -1,12 +1,22 @@
-<nav class="navbar subnavbar">
-  <h2 class="text-truncate"><%= @list.name %></h2>
-  <%= icon 'fas', 'angle-down', class: 'ml-2' %>
+<nav class="navbar navbar-expand-lg subnavbar">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle lead" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Tasks
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+  </ul>
   <div class="ml-auto">
     <%= link_to 'New Task', new_list_task_path, class: 'btn btn-outline-primary', remote: true %>
   </div>
 </nav>
 
-<div class="content">
+<div class="content list-group-content">
   <div class="list-group list-group-link sortable" data-url="<%= sort_list_tasks_path %>">
     <% @tasks.each do |task| %>
       <%= link_to list_task_path(@list, task), class: 'list-group-item list-group-item-action list-group-link-item',  "data-object-id": task.id, remote: true do %>

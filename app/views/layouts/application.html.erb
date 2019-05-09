@@ -28,6 +28,10 @@
           <% end %>
           <div class="content">
             <%= yield %>
+            
+            <% if Rails.env.development? %>
+              <br><%= debug(params) %>
+            <% end %>
           </div>
         </div>
       </div>

@@ -1,6 +1,34 @@
-.list-group-link {
+
+//.list-group-link {
+//  list-style-type: none;
+//  padding: 0px;
+//}
+//
+//.list-group-link .list-group-link {
+//  padding-left: 20px;
+//}
+//
+//.list-group-link div::after {
+//  content: "";
+//  position: absolute;
+//  left: 0; right: 0;
+//  height: 1.3em;
+//  z-index: -1;
+//}
+//
+//.list-group-link div:hover::after {
+//    background: red;
+//}
+
+
+.list-group-content {
   margin-left: -1.5rem;
   margin-right: -1.5rem;
+}
+
+.list-group-link .list-group-link {
+  margin-left: 1.5rem;
+//  margin-right: 1.5rem;
 }
 
 .list-group-link-item {
@@ -8,16 +36,16 @@
   border: 0;
   padding-left: $list-group-link-item-padding-y;
   padding-right: $list-group-link-item-padding-y;
-  
+
   // Hover state
   @include hover-focus {
     color: $list-group-link-item-hover-color;
   }
-  
+
   &:first-child {
     @include border-top-radius(0);
   }
-  
+
   &:last-child {
     @include border-bottom-radius(0);
   }

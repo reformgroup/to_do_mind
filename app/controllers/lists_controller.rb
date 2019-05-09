@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all.order(:position)
+    @lists = List.all.subtree.arrange(order: :position)
     @tasks = @lists.first.tasks
   end
 
@@ -70,7 +70,7 @@ class ListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list
-      @lists = List.all.order(:position)
+      #@lists = List.all.order(:position)
       @list = List.find(params[:id])
     end
 

@@ -1,4 +1,22 @@
-<h1>Editing Task</h1>
+<nav class="navbar navbar-expand-lg subnavbar">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <%= link_to icon('fas','angle-left', 'Editing Task'), list_task_path(@list, @task), class: 'nav-link lead', remote: true %>
+    </li>
+  </ul>
+  <div class="ml-auto">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <%= render 'form', task: @task %>
 

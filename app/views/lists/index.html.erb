@@ -1,22 +1,98 @@
-<nav class="navbar subnavbar">
-  <h2 class="text-truncate">Lists</h2>
-  <%= icon 'fas', 'angle-down', class: 'ml-2' %>
-  <div class="ml-auto">
+<nav class="navbar navbar-expand-lg subnavbar">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle lead" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Lists
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+  </ul>
+  <div>
     <%= link_to 'New List', new_list_path, class: 'btn btn-outline-primary', remote: true %>
   </div>
 </nav>
 
+<% if false %>
+  <%= arranged_tree_as_list(@categories) do |category| %>
+      # stuff that goes inside the <li></li> tags
+      <%= link_to category.name, category_path(category) %>
+  <% end %>
+<% end %>
+
+<% if true %>
+<div class="content list-group-content">
+    <%= arranged_tree(@lists, branch_tag: :ol, branch_class_root: "list-group list-group-link list-group-link-dark sortable-tree") do |list| %>
+        <div class="item">
+          <%= link_to [list, :tasks], class: 'list-group-item list-group-item-action list-group-link-item', data: { 'object-id': list.id }, remote: true do %>
+            <div class="d-flex w-100 align-items-center">
+              <span class="mb-1 text-truncate"><%= list.name %></span>
+              <% if list.tasks.count > 0 %>
+                <span class="badge badge-primary badge-pill ml-1"><%= list.tasks.count %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+</div>
+<% end %>
+
+<% if false %>
 <div class="content">
-  <div class="list-group list-group-link list-group-link-dark sortable" data-url="<%= sort_lists_path %>">
+  <ol class="list-group list-group-link list-group-link-dark sortable-tree" data-url="<%= sort_lists_path %>" data-max-levels="5">
+    <% @lists.each do |list| %>
+      <li>
+        <div class="item">
+          <%= link_to [list, :tasks], class: 'list-group-item list-group-item-action list-group-link-item',  "data-object-id": list.id, remote: true do %>
+            <div class="d-flex w-100 align-items-center">
+              <span class="mb-1 text-truncate"><%= list.name %></span>
+              <% if list.tasks.count > 0 %>
+                <span class="badge badge-primary badge-pill ml-1"><%= list.tasks.count %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
+</div>
+<% end %>
+
+<% if false %>
+
+<div>
+<ol class="sortable-tree" data-max-levels="5">
+  <li><div class="item">Test1</div></li>
+  <li><div class="item">Test2</div></li>
+  <li><div class="item">Test3</div></li>
+  <li>
+    <div class="item">Test4</div>
+    <ol>
+      <li><div class="item">Test5</div></li>
+      <li><div class="item">Test6</div></li>
+      <li><div class="item">Test7</div></li>
+    </ol>
+  </li>
+</ol>
+</div>
+
+
+<div class="content">
+  <div class="list-group list-group-link list-group-link-dark" data-url="<%= sort_lists_path %>">
     <% @lists.each do |list| %>
       <%= link_to [list, :tasks], class: 'list-group-item list-group-item-action list-group-link-item',  "data-object-id": list.id, remote: true do %>
-        <div class="d-flex w-100 justify-content-between align-items-center">
+        <div class="d-flex w-100 align-items-center">
           <span class="mb-1 text-truncate"><%= list.name %></span>
           <% if list.tasks.count > 0 %>
-            <span class="badge badge-primary badge-pill"><%= list.tasks.count %></span>
+            <span class="badge badge-primary badge-pill ml-1"><%= list.tasks.count %></span>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+<% end %>
